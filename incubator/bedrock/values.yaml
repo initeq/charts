@@ -1,0 +1,43 @@
+nginx-ingress:
+  enabled: false
+  controller:
+    replicaCount: 2
+  prometheus:
+    create: true
+  # defaultBackend:
+  #   replicaCount: 4
+  #   minAvailable: 2
+  rbac:
+    create: true
+
+kube2iam:
+  enabled: false
+  host:
+    iptables: true
+    interface: cni0
+  rbac:
+    create: true
+  extraArgs:
+    auto-discover-base-arn: true
+
+external-dns:
+  enabled: false
+  image:
+    tag: 0.7.4
+  # podAnnotations:
+  #   "iam.amazonaws.com/role": AWS_IAM_ROLE_FOR_ROUTE_53
+
+cert-manager:
+  enabled: false
+  clusterIssuer:
+    create: true
+    name: letsencrypt-staging
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    email: ops@mydomain.com
+  prometheus:
+    enabled: true
+    servicemonitor:
+      enabled: false
+
+# kubernetes-dashboard:
+#   enabled: false

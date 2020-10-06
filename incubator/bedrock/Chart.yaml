@@ -1,0 +1,44 @@
+apiVersion: v2
+name: bedrock
+description: INITEQ's collection of base k8s tools.
+
+keywords:
+  - nginx-ingress
+  - cert-manager
+  - external-dns
+  - kube2iam
+  - kubernetes-dashboard
+  - heapster
+
+version: 0.1.0
+
+dependencies:
+  - name: nginx-ingress
+    version: "0.6.1"
+    repository: https://helm.nginx.com/stable
+    condition: nginx-ingress.enabled
+
+  - name: kube2iam
+    version: "2.5.1"
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    condition: kube2iam.enabled
+
+  - name: external-dns
+    version: "3.4.2"
+    repository: https://charts.bitnami.com/bitnami
+    condition: external-dns.enabled
+
+  - name: cert-manager
+    version: "1.0.2"
+    repository: https://charts.jetstack.io
+    condition: cert-manager.enabled
+
+  # - name: kubernetes-dashboard
+  #   version: "1.0.2"
+  #   repository: "https://charts.jetstack.io"
+  #   condition: kubernetes-dashboard.enabled
+
+maintainers:
+  - name: INITEQ
+    email: info@initeq.net
+    url: https://initeq.net
