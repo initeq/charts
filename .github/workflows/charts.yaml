@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # Checkout the pull request branch
+      # Checkout the pull request branch...
       - name: Checkout Code
         uses: actions/checkout@v2
 
