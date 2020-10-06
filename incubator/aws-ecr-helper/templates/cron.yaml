@@ -1,0 +1,38 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ include "aws-ecr-helper.fullname" . }}
+  labels:
+    {{- include "aws-ecr-helper.labels" . | nindent 4 }}
+spec:
+  schedule: "0 */6 * * *"
+  successfulJobsHistoryLimit: 4
+  failedJobsHistoryLimit: 4
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+        {{- with .Values.podAnnotations }}
+          annotations:
+            {{- toYaml . | nindent 12 }}
+        {{- end }}
+          labels:
+            {{- include "aws-ecr-helper.labels" . | nindent 12 }}
+        spec:
+          serviceAccountName: {{ include "aws-ecr-helper.serviceAccountName" . }}
+          terminationGracePeriodSeconds: 0
+          restartPolicy: Never
+          containers:
+            - name: aws-ecr-helper
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+              command:
+                - "/usr/local/bin/refresh_credentials.sh"
+              env:
+                - name: AWS_ACCOUNT
+                  value: "{{ .Values.awsAccount }}"
+                - name: AWS_REGION
+                  value: "{{ .Values.awsRegion }}"
+                - name: TARGET_NAMESPACE
+                  value: "{{ .Values.targetNamespace }}"
