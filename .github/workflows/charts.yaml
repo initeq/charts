@@ -15,11 +15,11 @@ jobs:
       - name: Determine Chart Repo
         id: helm_chart
         run: |
-          if [[ ${GITHUB_REF} == 'refs/heads/master' ]]; then
-              echo "::set-output name=scp_location::charts@initeq.net:/var/www/charts/"
+          if [[ ${GITHUB_REF} == 'refs/heads/main' ]]; then
+              echo "::set-output name=bucket_url::s3://initeq-charts/"
               echo "::set-output name=repo_url::https://charts.initeq.net"
           else
-              echo "::set-output name=scp_location::charts@initeq.net/var/www/dev-charts/${GITHUB_REF}/"
+              echo "::set-output name=bucket_url::s3://initeq-dev-charts/${GITHUB_REF}/"
               echo "::set-output name=repo_url::https://charts.dev.initeq.net/${GITHUB_REF}"
           fi
         env:
@@ -38,3 +38,10 @@ jobs:
           args: "-C packages all"
         env:
           HELM_CHART_REPO_URL: ${{ steps.helm_chart.outputs.repo_url }}
+
+      - name: Publish Charts to Chart Repository
+        if: success() && github.repository == 'initeq/charts'
+        run: aws s3 sync --acl public-read packages/ ${{ steps.helm_chart.outputs.bucket_url }} --exclude '*' --include '*.tgz' --include '*.yaml'
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
