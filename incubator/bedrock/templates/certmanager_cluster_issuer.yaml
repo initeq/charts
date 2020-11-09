@@ -4,8 +4,7 @@ kind: ClusterIssuer
 metadata:
   name: {{ index .Values "cert-manager" "clusterIssuer" "name" }}
   annotations:
-    "helm.sh/hook": "post-install"
-    "helm.sh/hook": "post-upgrade"
+    "helm.sh/hook": post-install,post-upgrade
 spec:
   acme:
     # The ACME server URL
