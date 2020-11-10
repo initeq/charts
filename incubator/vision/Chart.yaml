@@ -16,11 +16,11 @@ keywords:
 
 version: 0.1.0
 
-dependencies: []
-  # - name: kubernetes-dashboard
-  #   version: "1.0.2"
-  #   repository: "https://charts.jetstack.io"
-  #   condition: kubernetes-dashboard.enabled
+dependencies:
+  - name: kube-prometheus-stack
+    version: "11.1.1"
+    repository: "https://prometheus-community.github.io/helm-charts"
+    condition: kube-prometheus-stack.enabled
 
 maintainers:
   - name: INITEQ

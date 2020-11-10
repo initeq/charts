@@ -1,0 +1,9 @@
+kube-prometheus-stack:
+  enabled: true
+  kubeTargetVersionOverride: 1.18.10
+  nameOverride: initeq-vision
+  namespaceOverride: vision
+  # coreDns:
+  #   enabled: false
+  # kubeDns:
+  #   enabled: true
