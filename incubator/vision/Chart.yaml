@@ -1,0 +1,28 @@
+apiVersion: v2
+name: vision
+description: INITEQ Vision
+
+keywords:
+  - observability
+  - monitoring
+  - metrics
+  - logging
+  - tracing
+  - prometheus
+  - grafana
+  - alertmanager
+  - loki
+  - tempo
+
+version: 0.1.0
+
+dependencies: []
+  # - name: kubernetes-dashboard
+  #   version: "1.0.2"
+  #   repository: "https://charts.jetstack.io"
+  #   condition: kubernetes-dashboard.enabled
+
+maintainers:
+  - name: INITEQ
+    email: info@initeq.net
+    url: https://initeq.net
