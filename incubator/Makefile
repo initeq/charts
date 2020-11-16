@@ -13,6 +13,8 @@ deps:
 	$(HELM) repo add nginx-stable https://helm.nginx.com/stable
 	$(HELM) repo add bitnami https://charts.bitnami.com/bitnami
 	$(HELM) repo add jetstack https://charts.jetstack.io
+	$(HELM) repo add jetstack https://charts.jetstack.io
+	$(HELM) repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 	mkdir -p $(PACKAGES_DIR)
 
 clean:
