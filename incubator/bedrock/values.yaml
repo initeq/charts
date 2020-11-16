@@ -1,12 +1,11 @@
 nginx-ingress:
   enabled: false
-  controller:
-    replicaCount: 2
-  prometheus:
-    create: true
-  # defaultBackend:
-  #   replicaCount: 4
-  #   minAvailable: 2
+  replicaCount: 1
+  minAvailable: 1
+  metrics:
+    enabled: false
+  defaultBackend:
+    enabled: true
   rbac:
     create: true
 

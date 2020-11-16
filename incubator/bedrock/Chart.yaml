@@ -10,12 +10,12 @@ keywords:
   - kubernetes-dashboard
   - heapster
 
-version: 0.2.0
+version: 0.3.0
 
 dependencies:
   - name: nginx-ingress
-    version: "0.6.1"
-    repository: https://helm.nginx.com/stable
+    version: "3.10.1"
+    repository: https://kubernetes.github.io/ingress-nginx
     condition: nginx-ingress.enabled
 
   - name: kube2iam
