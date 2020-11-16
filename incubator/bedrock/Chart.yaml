@@ -13,7 +13,7 @@ keywords:
 version: 0.3.0
 
 dependencies:
-  - name: nginx-ingress
+  - name: ingress-nginx
     version: "3.10.1"
     repository: https://kubernetes.github.io/ingress-nginx
     condition: nginx-ingress.enabled
