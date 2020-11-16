@@ -3,20 +3,20 @@ name: bedrock
 description: INITEQ's collection of base k8s tools.
 
 keywords:
-  - nginx-ingress
+  - ingress-nginx
   - cert-manager
   - external-dns
   - kube2iam
   - kubernetes-dashboard
   - heapster
 
-version: 0.3.0
+version: 0.4.0
 
 dependencies:
   - name: ingress-nginx
     version: "3.10.1"
     repository: https://kubernetes.github.io/ingress-nginx
-    condition: nginx-ingress.enabled
+    condition: ingress-nginx.enabled
 
   - name: kube2iam
     version: "2.5.1"

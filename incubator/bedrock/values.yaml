@@ -1,9 +1,10 @@
-nginx-ingress:
+ingress-nginx:
   enabled: false
-  replicaCount: 1
-  minAvailable: 1
-  metrics:
-    enabled: false
+  controller:
+    replicaCount: 1
+    minAvailable: 1
+    metrics:
+      enabled: false
   defaultBackend:
     enabled: true
   rbac:
