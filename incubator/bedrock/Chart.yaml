@@ -10,7 +10,7 @@ keywords:
   - kubernetes-dashboard
   - heapster
 
-version: 0.4.0
+version: 0.5.0
 
 dependencies:
   - name: ingress-nginx
@@ -19,8 +19,8 @@ dependencies:
     condition: ingress-nginx.enabled
 
   - name: kube2iam
-    version: "2.5.1"
-    repository: https://kubernetes-charts.storage.googleapis.com/
+    version: "2.6.0"
+    repository: https://jtblin.github.io/kube2iam/
     condition: kube2iam.enabled
 
   - name: external-dns
