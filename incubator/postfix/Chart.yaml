@@ -1,0 +1,14 @@
+apiVersion: v2
+description: A Helm chart for postfix smtp
+name: postfix
+version: 0.1.0
+
+keywords:
+  - postfix
+  - email
+  - relay
+
+maintainers:
+  - name: INITEQ
+    email: info@initeq.net
+    url: https://initeq.net
