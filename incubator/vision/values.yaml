@@ -98,7 +98,7 @@ kube-prometheus-stack:
         - match:
             alertname: Watchdog
           receiver: 'null'
-    alertmangerSpec:
+    alertmanagerSpec:
       externalUrl: https://alertmanager.MYDOMAIN.com
     # ingress:
     #   enabled: true
