@@ -6,7 +6,6 @@ metadata:
   labels:
     grafana_dashboard: "1"
     {{- include "vision.labels" . | nindent 4 }}
-    {{- include "vision.componentLabels" .Values.componentLabels.web | nindent 4 }}
 data:
   nginx.json: |
 {{ .Files.Get "files/nginx.json" | nindent 8 }}
