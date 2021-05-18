@@ -1,3 +1,7 @@
+grafanaDashboards:
+  nginx:
+    enabled: false
+
 kube-prometheus-stack:
   enabled: false
   # CHANGE THIS as necessary

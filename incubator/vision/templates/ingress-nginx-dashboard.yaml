@@ -1,0 +1,13 @@
+{{- if .Values.grafanaDashboards.nginx.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "chart.fullname" . }}-ingress-nginx
+  labels:
+    grafana_dashboard: "1"
+    {{- include "chart.labels" . | nindent 4 }}
+    {{- include "chart.componentLabels" .Values.componentLabels.web | nindent 4 }}
+data:
+  nginx.json: |
+{{ .Files.Get "files/nginx.json" | nindent 8 }}
+{{- end }}
