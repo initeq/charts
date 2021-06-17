@@ -12,15 +12,25 @@ keywords:
   - grafana
   - alertmanager
   - loki
+  - promtail
   - tempo
 
-version: 0.2.0
+version: 0.3.0
 
 dependencies:
   - name: kube-prometheus-stack
     version: "11.1.1"
     repository: "https://prometheus-community.github.io/helm-charts"
     condition: kube-prometheus-stack.enabled
+  - name: loki
+    version: "2.5.0"
+    repository: "https://grafana.github.io/helm-charts"
+    condition: loki.enabled
+  - name: promtail
+    version: "3.6.0"
+    repository: "https://grafana.github.io/helm-charts"
+    condition: promtail.enabled
+
 
 maintainers:
   - name: INITEQ

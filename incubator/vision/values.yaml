@@ -2,6 +2,12 @@ grafanaDashboards:
   nginx:
     enabled: false
 
+promtail:
+  enabled: false
+
+loki:
+  enabled: false
+
 kube-prometheus-stack:
   enabled: false
   # CHANGE THIS as necessary
