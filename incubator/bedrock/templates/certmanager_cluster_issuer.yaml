@@ -14,9 +14,11 @@ spec:
     # Name of a secret used to store the ACME account private key
     privateKeySecretRef:
       name: {{ index .Values "cert-manager" "clusterIssuer" "name" }}
-    # Enable the HTTP-01 challenge provider
+    # Enable the HTTP-01 or DNS01 challenge provider
+    # NOTE: if using DNS you need to give the certmanager pod permission to make
+    # entries in your DNS (eg. route53). This can be accomplished by using "extraEnv"
+    # and injecting the AWS credentials as environment variables.
+    # Another option if using kube2iam is to add an annotation with the correct IAM role.
     solvers:
-    - http01:
-        ingress:
-          class: nginx
+    {{ toYaml (index .Values "cert-manager" "clusterIssuer" "solvers") | nindent 4}}
 {{- end }}
