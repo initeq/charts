@@ -1,0 +1,18 @@
+apiVersion: v2
+name: external-dns
+description: ExternalDNS synchronizes exposed Kubernetes Services and Ingresses with DNS providers.
+type: application
+version: 1.0.0
+appVersion: 0.12.0
+keywords:
+  - kubernetes
+  - externaldns
+  - external-dns
+  - dns
+  - service
+  - ingress
+
+maintainers:
+  - name: INITEQ
+    email: info@initeq.net
+    url: https://initeq.net
