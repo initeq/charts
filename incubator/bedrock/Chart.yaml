@@ -10,7 +10,7 @@ keywords:
   - kubernetes-dashboard
   - heapster
 
-version: 0.7.0
+version: 0.8.0
 
 dependencies:
   - name: ingress-nginx
@@ -24,7 +24,7 @@ dependencies:
     condition: kube2iam.enabled
 
   - name: external-dns
-    version: "3.4.2"
+    version: "6.6.1"
     repository: https://charts.bitnami.com/bitnami
     condition: external-dns.enabled
 
