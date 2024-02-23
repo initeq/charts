@@ -8,7 +8,7 @@ image:
   repository: initeq/aws-ecr-helper
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
@@ -58,4 +58,5 @@ affinity: {}
 
 awsAccount: "1122334455"
 awsRegion: "us-east-1"
-targetNamespace: default
+# IMPORTANT: This needs to be a string separated with a single space between namespaces
+targetNamespaces: "namespace1 namespace2"

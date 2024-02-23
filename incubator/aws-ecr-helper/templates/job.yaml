@@ -29,5 +29,5 @@ spec:
               value: "{{ .Values.awsAccount }}"
             - name: AWS_REGION
               value: "{{ .Values.awsRegion }}"
-            - name: TARGET_NAMESPACE
-              value: "{{ .Values.targetNamespace }}"
+            - name: TARGET_NAMESPACES
+              value: "{{ .Values.targetNamespaces }}"
