@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ include "aws-ecr-helper.fullname" . }}
+  name: {{ include "aws-ecr-helper.fullname" . }}-{{ now | htmlDate }}
   labels:
     {{- include "aws-ecr-helper.labels" . | nindent 4 }}
 spec:
